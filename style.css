@@ -27,11 +27,13 @@ header
     /* float: right; */
 }
 
-nav > a {
+nav > a 
+{
     padding: 0px 10px; 
 }
 
-#content {
+#content 
+{
     font-size: 1.5em;
     line-height: 1.5;
     margin: 80px auto 60px auto;
@@ -41,56 +43,49 @@ nav > a {
 
 }
 
-article {
+article 
+{
     color: #fafafa;
     font-size: 1.2rem;
     line-height: 1.8;
     letter-spacing: .0125em;
-    
+    position: relative;
 }
 
-/* @supports (not(initial-letter: 5)) and (not(-webkit-initial-letter: 5)) { */
-article::first-letter {
+
+article p:first-child::first-letter 
+{
     /* display: inline-block; */
     font-family: "Noe Display";
     font-size: 6em;
     /* min-height: calc(66px+1.8rem); */
     float: left;
-    line-height: 8rem;
+    line-height: 4.6rem;
+    font-weight: bold;
+    margin-right: .4em;
+    margin-top: 2.2rem;
+}
+
+article p:first-child::after
+{
+    content: "";
+    display: block;
+    z-index: -1;
+    position: absolute;
+    top: -3rem;
+    left: -4rem;
+    height: 13rem;
+    width: 12.5rem;
     border: 8px solid;
     border-image-source: linear-gradient(130deg, rgba(117,117,117,1) 0%, rgba(148,148,148,1) 26%, rgba(0,0,0,1) 61%, rgba(117,117,117,1) 86%);
     border-image-slice: 1;
-    font-weight: bold;
-    margin-right: .3em;
-    padding: 0 25px;
 }
-/* } */
-
-
-@supports (initial-letter: 5) or (-webkit-initial-letter: 5) {
-    article::first-letter {
-        font-size: 1.5em;
-        margin: 0;
-        -webkit-initial-letter: 3;
-        initial-letter: 3;
-        border: 8px solid;
-        border-image-source: linear-gradient(130deg, rgba(117,117,117,1) 0%, rgba(148,148,148,1) 26%, rgba(0,0,0,1) 61%, rgba(117,117,117,1) 86%);
-        border-image-slice: 1;
-        color: white;
-        font-weight: bold;
-        margin-right: 1em;
-        padding: 25px;
-    }
-}
-
-
 
 #feature
 {
-    max-width: 510px;
     margin: 25px auto;
     box-sizing: border-box;
-    padding: 30px 40px;
+    padding-bottom: 20px;
     display: block;
     margin-top: 80px;
     position: relative;
@@ -102,12 +97,13 @@ article::first-letter {
     background: linear-gradient(68deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0.5) 27%, rgba(0,0,0,1) 40%, rgba(191,191,191,1) 64%, rgba(227,227,227,1) 69%, rgba(0,0,0,1) 86%, rgb(87, 87, 87) 100%);
     padding: 8px;
     height: 30vw;
-    width: 30vw;
+    /* width: 30vw; */
     max-height: 250px;
-    max-width: 250px;
+    /* max-width: 250px; */
     opacity: 0.5;
     margin-left: 200px;
-    margin-top: -150px;
+    margin-top: -200px;
+    margin-bottom: 100px;
     /* transition: transform 0.4s ease; */
 }
 
@@ -130,7 +126,7 @@ h1 {
 h1, h2
 {
     font-family: "Noe Display";
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     color: #cccccc;
     margin: 0;
     z-index: 1;
@@ -151,6 +147,28 @@ h2
     line-height: 1.5em;
 }
 
+#related
+{
+    font-family: "Noe Display";
+    font-size: 2rem;
+    color: #eee;
+    text-shadow: none;
+    margin: 120px 0px 50px 0px;
+    
+}
+            
+#related:after
+{
+    content: "";
+    width: 200px;
+    height: 20px;
+    background: linear-gradient(-90deg, #000, #555);
+    display: block;
+    transform: translate(20px, -20px);
+    z-index: -1;
+    position: relative;
+}
+
 
 h5
 {
@@ -161,7 +179,7 @@ font-size: 0.9rem;
 
 #feature h1
 {
-max-width: 485px;
+max-width: 585px;
 }
 
 #feature h2
@@ -176,16 +194,17 @@ bottom: 32px;
 right: 20px;
 }
 
-.card {
+.card 
+{
     position:relative;
     font-family: "Noe Display";
     width: 200px;
-    height: 200px;
+    height: 250px;
     min-width: 200px;
-    margin: 20px;
+    margin: 10px;
     border: 8px solid;
     /* border-radius: 3px; */
-    border-image-source: linear-gradient(130deg, rgba(117,117,117,1) 0%, rgba(148,148,148,1) 26%, rgba(0,0,0,1) 61%, rgba(117,117,117,1) 86%);
+    border-image-source: linear-gradient(68deg, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0.5) 27%, rgba(0,0,0,1) 40%, rgba(191,191,191,0.5) 64%, rgba(227,227,227,0.5) 69%, rgba(0,0,0,1) 86%, rgb(87, 87, 87) 100%); 
     border-image-slice: 1;
     display: table;
     vertical-align: middle;
@@ -196,31 +215,39 @@ right: 20px;
     transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 
-.card h3 {
-    padding-left: 15px; 
+.card h4 
+{
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 0 15px; 
+    opacity: 0.8;
 }
 
-.card h5 {
+.card h5 
+{
     text-transform: capitalize;
     color: #808080;
+    margin: 2px 0;
 }
 
 .card:hover, .card:focus
 {
-    -webkit-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    transform: translateY(-15px);
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
-#recommended {
+#recommended 
+{
     width: 100%;
-    margin: 50px 0;
+    margin: 0;
     display: flex;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
-.recommended-bottom {
+.recommended-bottom 
+{
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 83px;
 }
